@@ -6,7 +6,7 @@ export function useDebounce(
 ) {
     const timeoutRef = useRef<number | undefined>();
 
-    const debouncedFunction = useCallback((...args: Parameters<T>) => {
+    const debouncedFunction = useCallback((...args: any[]) => {
         clearTimeout(timeoutRef.current)
         timeoutRef.current = setTimeout(() => {
             callback(...args);
