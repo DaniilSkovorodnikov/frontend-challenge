@@ -1,0 +1,26 @@
+.navItem{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navLink, .activeNavLink{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: #FFFFFFB2;
+    padding: 0 24px;
+}
+
+.activeNavLink{
+    background-color: #1E88E5;
+    color: white;
+}
+
+@media (max-width: 425px) {
+    .navLink, .activeNavLink{
+        height: 64px;
+    }
+}

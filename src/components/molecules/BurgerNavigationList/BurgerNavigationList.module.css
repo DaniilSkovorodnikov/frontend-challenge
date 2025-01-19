@@ -1,0 +1,17 @@
+.menu{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 64px;
+    background-color: #2196F3;
+    transition: all 0.3s ease-in;
+    z-index: 2;
+    transform: translateX(-100vw);
+    width: 0;
+}
+
+.menu.open{
+    transform: translateX(0);
+    width: 100vw;
+}

@@ -1,0 +1,13 @@
+export interface CatResponse{
+    breeds: unknown[];
+    categories?: unknown[];
+    id: string;
+    url: string;
+    width: number;
+    height: number;
+}
+
+export interface Cat{
+  id: string,
+  url: string
+}

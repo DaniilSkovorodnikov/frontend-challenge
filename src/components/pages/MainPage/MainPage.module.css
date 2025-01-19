@@ -1,0 +1,12 @@
+.gridContainer{
+    margin-bottom: 48px;
+}
+
+.anchorEnd{
+    height: 1px;
+    visibility: hidden;
+}
+
+.loading{
+    text-align: center;
+}

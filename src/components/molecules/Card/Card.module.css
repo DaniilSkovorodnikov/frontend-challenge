@@ -1,0 +1,81 @@
+.card{
+    position: relative;
+    width: 225px;
+    height: 225px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover{
+    transform: scale(1.138);
+    box-shadow: 
+        0px 9px 18px 0px rgba(0, 0, 0, 0.18),
+        0px 6px 5px 0px rgba(0, 0, 0, 0.24);
+}
+
+.cardImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+}
+
+.cardImage.loaded{
+    opacity: 1;
+}
+
+.likeButton{
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    right: 24px;
+}
+
+.likeButton img{
+    width: 52px;
+    height: 47px;
+}
+
+.card:hover .likeButton{
+    display: block;
+}
+
+.placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e0e0e0;
+}
+
+@media (hover: none) {
+    .likeButton{
+        display: block;
+    }
+
+    .card:hover{
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 621px) {
+    .card{
+        width: 340px;
+        height: 340px;
+    }
+}
+
+@media (max-width: 470px) {
+    .card{
+        width: 270px;
+        height: 270px;
+    }
+}
+
+@media (max-width: 360px) {
+    .card{
+        width: 240px;
+        height: 240px;
+    }
+}

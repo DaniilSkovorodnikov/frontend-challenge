@@ -1,0 +1,14 @@
+.navList {
+    display: flex;
+    height: 100%;
+}  
+
+.desktopNav{
+    height: 100%;
+}
+
+@media (max-width: 425px) {
+    .desktopNav{
+        display: none;
+    }
+}
