@@ -33,9 +33,7 @@ export const FavouritesProvider: React.FC<{children: React.ReactNode}> = ({child
     }, []);
 
     useEffect(() => {
-        if(favourites.size > 0) {
-            localStorage.setItem(FAVOURITES_KEY, JSON.stringify(Array.from(favourites.values())))
-        }
+        localStorage.setItem(FAVOURITES_KEY, JSON.stringify(Array.from(favourites.values())))
     }, [favourites]);
 
     return (
