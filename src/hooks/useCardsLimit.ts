@@ -13,8 +13,7 @@ export function useCardsLimit(gridRef: React.RefObject<HTMLDivElement>) {
         
         const cols = Math.floor(gridWidth / cardSize);
         const rows = Math.floor(possibleGridHeight / cardSize) + 1;
-        
-        cardsLimitRef.current = cols * rows;
+        cardsLimitRef.current = Math.max(cols, 1) * Math.max(rows, 1); 
 
     }, [])
     const debouncedCalculate = useDebounce(calcCardsLimit, 300);

@@ -27,8 +27,13 @@ export const FavouritesProvider: React.FC<{children: React.ReactNode}> = ({child
     useEffect(() => {
         const storedFavourites = localStorage.getItem(FAVOURITES_KEY);
         if(storedFavourites){
-            const parsedFavourites = JSON.parse(storedFavourites).map((cat: Cat) => [cat.id, cat]);
-            setFavourites(new Map(parsedFavourites));
+            try {
+                const parsedFavourites = JSON.parse(storedFavourites).map((cat: Cat) => [cat.id, cat]);
+                setFavourites(new Map(parsedFavourites));
+            }
+            catch {
+                setFavourites(new Map());
+            }
         }
     }, []);
 
