@@ -29,7 +29,12 @@ const MainPage: React.FC = () => {
             setIsLoading(true);
             try {
                 const newCats = await getCats(page, limit);
-                setCats((prevCats) => [...prevCats, ...newCats]);
+                setCats((prevCats) => {
+                    const cats = new Map(prevCats.map(cat => [cat.id, cat]))
+                    newCats.forEach(cat => console.log(cats.has(cat.id)))
+                    const uniqueCats = newCats.filter(newCat => !cats.has(newCat.id));
+                    return [...prevCats, ...uniqueCats]
+                });
             } catch (err) {
                 console.log(err);
             } finally {
