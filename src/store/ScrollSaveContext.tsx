@@ -7,6 +7,7 @@ interface ScrollSaveContextProps{
 
 const ScrollSaveContext = createContext<ScrollSaveContextProps | undefined>(undefined);
 
+// Контекст для более хорошего UX, чтобы каждый раз заново не скроллить длинную основную страницу
 export const ScrollSaveProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
     const [scrollMap, setScrollMap] = useState<Map<string, number>>(new Map());
 

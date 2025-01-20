@@ -9,6 +9,7 @@ interface FavouritesContextType{
 const FAVOURITES_KEY = 'CATS_FAVOURITE'
 const FavouritesContext = createContext<FavouritesContextType | undefined>(undefined);
 
+// Будем использовать Map вместо объекта, потому что Map имеет удобные методы работы с коллекцией и сохраняет порядок добавления элементов в отличие от объектов
 export const FavouritesProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     const [favourites, setFavourites] = useState<Map<string, Cat>>(new Map());
 
@@ -27,6 +28,7 @@ export const FavouritesProvider: React.FC<{children: React.ReactNode}> = ({child
     useEffect(() => {
         const storedFavourites = localStorage.getItem(FAVOURITES_KEY);
         if(storedFavourites){
+            // На случай если умный пользователь решил подменить массив в локальном хранилище на что нибудь плохое
             try {
                 const parsedFavourites = JSON.parse(storedFavourites).map((cat: Cat) => [cat.id, cat]);
                 setFavourites(new Map(parsedFavourites));
@@ -38,6 +40,7 @@ export const FavouritesProvider: React.FC<{children: React.ReactNode}> = ({child
     }, []);
 
     useEffect(() => {
+        // localStorage не резиновый, а всего 5мб, поэтому будем хранить как можно меньше данных
         localStorage.setItem(FAVOURITES_KEY, JSON.stringify(Array.from(favourites.values())))
     }, [favourites]);
 

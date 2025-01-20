@@ -8,6 +8,7 @@ interface CatContextProps{
 
 const CatContext = createContext<CatContextProps | undefined>(undefined);
 
+// Контекст для того чтобы каждый раз не запрашивать котиков при возврате на основную страницу
 export const CatProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
     const [cats, setCats] = useState<Cat[]>([]);
 

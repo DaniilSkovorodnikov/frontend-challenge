@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useDebounce } from "./useDebounce";
 
+// Мониторы у всех бывают разные, поэтому посчитаем сколько оптимально карточек можно загрузить для данной ширины и высоты экрана,
+// иначе если подгрузить слишком мало карточек, дополнительные карточки больше не подгрузятся, т.к. observer для бесконечного скролла не сработает второй раз подряд
+// Вернем функцию которая отдаст текущий лимит карточек, через state нельзя, т.к. не хотим делать доп. запрос при resize окна.
 export function useCardsLimit(gridRef: React.RefObject<HTMLDivElement>) {
     const cardsLimitRef = useRef<number>(0);
 

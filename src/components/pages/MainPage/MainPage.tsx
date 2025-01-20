@@ -30,8 +30,8 @@ const MainPage: React.FC = () => {
             try {
                 const newCats = await getCats(page, limit);
                 setCats((prevCats) => {
+                    // Как оказалось api иногда отдаёт дубликаты
                     const cats = new Map(prevCats.map(cat => [cat.id, cat]))
-                    newCats.forEach(cat => console.log(cats.has(cat.id)))
                     const uniqueCats = newCats.filter(newCat => !cats.has(newCat.id));
                     return [...prevCats, ...uniqueCats]
                 });

@@ -18,6 +18,7 @@ const favouritesCats = useMemo(() => Array.from(favourites.values()), [favourite
     <div>
       <CardGrid
         cats={favouritesCats}
+        isFavouriteGrid
       />
     </div>
   );
